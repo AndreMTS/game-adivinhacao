@@ -12,6 +12,10 @@ document.addEventListener('DOMContentLoaded', function () {
             newElement.textContent = element.texto;
         }
 
+        if (element.textoHTML) {
+            newElement.innerHTML = element.textoHTML;
+        }
+
         if (element.className) {
             newElement.className = element.className;
         }
@@ -40,7 +44,9 @@ document.addEventListener('DOMContentLoaded', function () {
         };
         const Info = {
             tag: 'h2',
-            texto: 'Vamos jogar?',
+            textoHTML: `Vamos jogar?<br> 
+                        vou pensar em um número de 0 a 100!<br>
+                        e você tenta adivinhar!`,
             className: 'info-iniciar-game'
         };
         const buttonElement = createElement(buttonInfo);
@@ -64,7 +70,7 @@ document.addEventListener('DOMContentLoaded', function () {
         const container_input = createElement(containerInfo);
         const resultadoInfo = {
             tag: 'h2',
-            texto: 'Escolha um número de 0 a 10!!'
+            texto: 'Qual número estou pensando!?'
         };
         const resultado = createElement(resultadoInfo);
         const inputNumeroInfo = {
@@ -72,7 +78,7 @@ document.addEventListener('DOMContentLoaded', function () {
             type: 'number',
             className: 'input-numero',
             min: 0,
-            max: 10
+            max: 100
         };
         const inputNumero = createElement(inputNumeroInfo);
         const buttonInfo = {
@@ -90,33 +96,38 @@ document.addEventListener('DOMContentLoaded', function () {
         const getNumero = document.querySelector('.input-numero');
         const btnEnviar = document.querySelector('.btn-enviar-resultado');
 
+        // Função para gerar um número aleatório entre 0 e 100
+        function gerarNumeroAleatorio() {
+            return Math.floor(Math.random() * 101); // Gera um número aleatório entre 0 e 100
+        }
+
+        let numeroAleatorio = gerarNumeroAleatorio();
+        let tentativas = 0;
+
         btnEnviar.addEventListener('click', function () {
             const valor = getNumero.value;
-
             let borderContainer = document.querySelector('.container');
+
             if (valor !== '') {
-                const numeroAleatorio = Math.floor(Math.random() * 11); // Gera um número aleatório entre 0 e 10 (inclusivo)
-                
-
+                debugger
                 const valorNumero = parseInt(valor);
+                tentativas++;
 
-                if (valorNumero > 10) {
-                    resultado.innerHTML = `Você não entendeu o jogo? <br> Escolha um número de 0 a 10!`;
-                    borderContainer.style.border = '1px solid red';
-                    return;
-                }
-
-                if (numeroAleatorio === valorNumero) {
+                if (valorNumero < numeroAleatorio) {
+                    resultado.innerHTML = 'Tente um número maior!';
+                } else if (valorNumero > numeroAleatorio) {
+                    resultado.innerHTML = 'Tente um número menor!';
+                } else {
+                    // Se o jogador acertar o número
                     borderContainer.style.border = '1px solid #72b20c';
-                    exibirConteiner(numeroAleatorio);
+                    exibirConteiner(numeroAleatorio)
+                    resultado.innerHTML = `Parabéns! Você acertou o número ${numeroAleatorio} em ${tentativas} tentativas.`;
                     ocultarExibirElemento(campoInput);
                     ocultarExibirElemento(iniciar);
-                } else {
-                    resultado.innerHTML = `<span style="color:red">Você errou!</span><br>O número era ${numeroAleatorio}<br>Você chutou ${valorNumero}`;
-                    getNumero.value = '';
-                    getNumero.focus();
-                    borderContainer.style.border = '1px solid red';
                 }
+
+                getNumero.value = '';
+                getNumero.focus();
             } else {
                 borderContainer.style.border = '1px solid red';
                 resultado.innerText = 'Escolha um número antes de enviar.';
@@ -180,7 +191,6 @@ document.addEventListener('DOMContentLoaded', function () {
         };
         const buttonWinner = createElement(buttonWinnerInfo);
         buttonWinner.addEventListener('click', reload);
-
 
         containerTexto.appendChild(h1);
         containerTexto.appendChild(h2);
