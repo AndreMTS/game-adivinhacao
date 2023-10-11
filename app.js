@@ -95,8 +95,8 @@ document.addEventListener('DOMContentLoaded', function () {
 
             let borderContainer = document.querySelector('.container');
             if (valor !== '') {
-                //const numeroAleatorio = Math.floor(Math.random() * 11); // Gera um número aleatório entre 0 e 10 (inclusivo)
-                const numeroAleatorio = 4; // Gera um número aleatório entre 0 e 10 (inclusivo)
+                const numeroAleatorio = Math.floor(Math.random() * 11); // Gera um número aleatório entre 0 e 10 (inclusivo)
+                //const numeroAleatorio = 4; // Gera um número aleatório entre 0 e 10 (inclusivo)
 
                 const valorNumero = parseInt(valor);
 
