@@ -4,7 +4,8 @@ link: https://andremts.github.io/game-adivinhacao/
 Alura Projeto - Lógica de programação: mergulhe em programação com JavaScript
 
 
-![game](https://github.com/AndreMTS/game-adivinhacao/assets/60296220/d722bbc1-b6b2-46e1-80e3-3fcdd90741ea)
+
+![game2](https://github.com/AndreMTS/game-adivinhacao/assets/60296220/be93548a-cd8d-49d4-b873-db0123c1b5bc)
 
 
 
