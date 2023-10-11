@@ -51,6 +51,10 @@ body::before {
     flex: 1;
     padding: 20px;
 }
+.container__acoes{
+    margin: 0 auto;
+    padding: 0 0 0 40%;
+}
 
 .container__botao {
     border-radius: 16px;
@@ -68,7 +72,7 @@ body::before {
 }
 
 .container__texto-azul {
-    color: #1875E8;
+    color: #72b20c;
 }
 
 h1 {
@@ -79,12 +83,15 @@ h1 {
 h2,
 p,
 button {
-    font-family: 'Inter', sans-serif;
+    font-family: 'Chakra Petch', sans-serif;
 }
 
 h2 {
     font-size: 32px;
     font-weight: 400;
+}
+.campo-input {
+    text-align-last: center;
 }
 .input-numero input{
     width: 250px;
@@ -101,24 +108,44 @@ h2 {
     height: 70px;
     font-size: 30px;
     border-radius: 15px;
-    background-color: #D264D5;
+    background-color: #1875E8;
 
 }
 .btn-iniciar-game:hover {
-    background-color: #7e2581;
+    background-color: #048b26;
 
 }
+.text_iniciar{
+    text-align: center;
+    margin-bottom: 8px;
+}
 .btn-enviar-resultado{
-    width: 113px;
-    height: 46px;
-    font-size: 22px;
-    border-radius: 7px;
-    background-color: #D264D5; 
+    width: 250px;
+    height: 70px;
+    font-size: 30px;
+    border-radius: 15px;
+    background-color: #1875E8;
+    margin-top: 14px;
 }
 .input-numero{
-    width: 324px;
-    height: 38px;
+    box-sizing: border-box;
+    display: block;
+    height: 64px;
+    font-size: 36px;
     border-radius: 10px;
-    padding: 10px 0px 7px 8px;
-    color: #000;
+    color: #01080E;
+    padding: 0;
+    width: 250px;
+    margin: 0 auto;
+    text-align:center;
+}
+.input-numero[type=number]::-webkit-inner-spin-button, 
+.input-numero[type=number]::-webkit-outer-spin-button { 
+  -webkit-appearance: none; 
+  text-align:center;
+  padding-left:10px;
+  margin: 0; 
+}
+.info-iniciar-game{
+    margin-left: 15px;
 }
