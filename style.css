@@ -69,6 +69,7 @@ body::before {
 
 .container__texto {
     margin: 16px 0 16px 0;
+    text-align: center;
 }
 
 .container__texto-azul {
@@ -127,6 +128,13 @@ h2 {
     background-color: #1875E8;
     margin-top: 14px;
 }
+.btn_winner{
+    width: 250px;
+    height: 70px;
+    font-size: 20px;
+    border-radius: 15px;
+    background-color: #1875E8;
+}
 .input-numero{
     box-sizing: border-box;
     display: block;
@@ -147,5 +155,11 @@ h2 {
   margin: 0; 
 }
 .info-iniciar-game{
-    margin-left: 15px;
+    margin: 0px 0px 27px 0px  ; 
+}
+.actionDiv{
+    text-align: center;
+}
+.container-input{
+    text-align: center;
 }

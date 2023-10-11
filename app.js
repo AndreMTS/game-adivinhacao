@@ -95,7 +95,8 @@ document.addEventListener('DOMContentLoaded', function () {
 
             let borderContainer = document.querySelector('.container');
             if (valor !== '') {
-                const numeroAleatorio = Math.floor(Math.random() * 11); // Gera um número aleatório entre 0 e 10 (inclusivo)
+                //const numeroAleatorio = Math.floor(Math.random() * 11); // Gera um número aleatório entre 0 e 10 (inclusivo)
+                const numeroAleatorio = 4; // Gera um número aleatório entre 0 e 10 (inclusivo)
 
                 const valorNumero = parseInt(valor);
 
@@ -122,6 +123,10 @@ document.addEventListener('DOMContentLoaded', function () {
             }
         });
     });
+
+    function reload() {
+        location.reload(); // Isso irá recarregar a página, reiniciando o jogo
+    }
 
     // Função para exibir informações após acertar o número
     function exibirConteiner(numeroAleatorio) {
@@ -154,20 +159,33 @@ document.addEventListener('DOMContentLoaded', function () {
         const span = createElement(spanInfo);
         h1.textContent = 'Você ';
         h1.appendChild(span);
+
         const h2Info = {
             tag: 'h2',
             texto: 'Você descobriu o número secreto!'
         };
         const h2 = createElement(h2Info);
+
         const h2_winnerInfo = {
             tag: 'h2',
             className: 'text_iniciar',
             texto: `Número era: ${numeroAleatorio}`
         };
         const h2_winner = createElement(h2_winnerInfo);
+
+        const buttonWinnerInfo = {
+            tag: 'button',
+            className: 'btn_winner',
+            texto: 'Jogar novamente'
+        };
+        const buttonWinner = createElement(buttonWinnerInfo);
+        buttonWinner.addEventListener('click', reload);
+
+
         containerTexto.appendChild(h1);
         containerTexto.appendChild(h2);
         containerTexto.appendChild(h2_winner);
+        containerTexto.appendChild(buttonWinner);
         containerInformacoes.appendChild(img);
         containerInformacoes.appendChild(containerTexto);
         conteiner.appendChild(containerInformacoes);
